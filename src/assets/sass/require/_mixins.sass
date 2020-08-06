@@ -1,0 +1,13 @@
+/******************
+  ******** MIXINS *
+  *****************/
+
+/***************** MAX WIDTH* MAX WIDTH
+@mixin kt_max-width-5()
+  @for $i from 1 through 20
+    .max-width-#{$i*5}r
+      max-width: #{$i*5}rem
+@mixin kt_max-width-2()
+  @for $i from 1 through 20
+    .max-width-#{$i*2}r
+      max-width: #{$i*2}rem !important

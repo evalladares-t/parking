@@ -1,0 +1,64 @@
+.login
+  min-height: 100vh
+  width: 100%
+  justify-content: flex-end
+  display: flex
+  .login-background
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    width: 100%
+    &.bg_2
+      display: none
+  form
+    margin: 0
+    max-width: 25rem
+    width: 100%
+    background: #F5F5F5
+    padding: 2rem
+    display: flex
+    border-radius: 0
+    z-index: 1
+    .parent_img
+      max-width: 15rem
+      margin: auto
+      // margin-bottom: 2rem
+      margin-bottom: 0
+      margin-top: 1rem
+      &::before
+        // padding-top: 30%
+        padding-top: 37%
+
+    .initxt
+      padding-bottom: 1rem
+
+    button:disabled,
+    button:disabled > *
+      cursor: not-allowed !important
+
+
+// RESPOSIVE
+@media (max-width: 600px)
+  .login
+    align-items: center
+    justify-content: center
+    .login-background
+      height: 100%
+      width: 100%
+      position: absolute
+      z-index: 0
+      &.bg_1
+        display: none
+      &.bg_2
+        display: block
+    form
+      max-width: 30rem
+      margin: 0 2rem
+      border-radius: 0.5rem
+      background: rgba(245,245,245, 95%)
+
+// FIX RESPONSIVE
+@media (min-width: 600px)
+  .login
+    form.elevation-5
+      box-shadow: none !important
