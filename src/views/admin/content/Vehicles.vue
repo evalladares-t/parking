@@ -14,6 +14,13 @@
             v-container.pa-0
               v-row
                 v-col(cols='12')
+                  v-autocomplete(
+                    v-model="vehicleItem.idtypevehicle"
+                    :items="vehicletypeItems"
+                    item-text="name"
+                    item-value="idtypevehicle"
+                    label="Tipo de vehículo")
+                v-col(cols='12')
                   v-text-field(v-model='vehicleItem.license_plate', label='Placa')
                 v-col(cols='12')
                   v-textarea(v-model='vehicleItem.description', label='Descripción' rows='2')
@@ -54,10 +61,12 @@ export default {
       name: ''
     },
     editedVehicle: false,
-    indexItem: -1
+    indexItem: -1,
+    vehicletypeItems: []
   }),
   created () {
     this.getVehicles()
+    this.getVehicleTypes()
   },
   methods: {
     async getVehicles () {
@@ -67,6 +76,19 @@ export default {
           url: '/vehicle'
         })
         this.vehicleItems = response.data.data
+      } catch (error) {
+        console.error(error)
+        this.loadings.form = false
+      }
+    },
+
+    async getVehicleTypes () {
+      try {
+        const response = await this.$api({
+          method: 'GET',
+          url: '/typevehicle'
+        })
+        this.vehicletypeItems = response.data.data
       } catch (error) {
         console.error(error)
         this.loadings.form = false
