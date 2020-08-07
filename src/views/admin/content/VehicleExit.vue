@@ -232,7 +232,7 @@ export default {
       try {
         await this.$api({
           method: 'DELETE',
-          url: '/vehiclespace/' + this.vehicleItem.idvehiclespace
+          url: '/vehiclespace/salida/' + this.vehicleItem.idvehiclespace
         })
         this.vehicleItems.splice(this.indexItem, 1)
       } catch (error) {
@@ -257,7 +257,7 @@ export default {
       try {
         await this.$api({
           method: 'PATCH',
-          url: '/vehiclespace/' + this.data.result.idvehiclespace,
+          url: '/vehiclespace/salida/' + this.data.result.idvehiclespace,
           data: data
         })
         // this.vehicleItems.push(response.data.data)
@@ -272,7 +272,7 @@ export default {
       try {
         await this.$api({
           method: 'PATCH',
-          url: '/vehiclespace/' + this.vehicleItem.idvehiclespace,
+          url: '/vehiclespace/salida/' + this.vehicleItem.idvehiclespace,
           data: this.vehicleItem
         })
         Object.assign(this.vehicleItems[this.indexItem], this.vehicleItem)
